@@ -139,7 +139,7 @@ void main() {
 
       test(position['fen'] + ' ' + position['square'], () {
         var moves = chess.moves(
-            {'square': position['square'], 'verbose': position['verbose']});
+            square: position['square'], verbose: position['verbose']);
         var passed = position['moves'].length == moves.length;
 
         for (var j = 0; j < moves.length; j++) {
@@ -940,10 +940,9 @@ void main() {
           chess.header[position['header'][k]] = position['header'][k + 1];
         }
         //chess.header.apply(null, position['header']);
-        var pgn = chess.pgn({
-          'max_width': position['max_width'],
-          'newline_char': position['newline_char']
-        });
+        var pgn = chess.pgn(
+            max_width: position['max_width'],
+            newline_char: position['newline_char'] ?? '\n');
         var fen = chess.fen;
         passed = pgn == position['pgn'] && fen == position['fen'];
         expect(passed && error_message.isEmpty, isTrue);
@@ -1036,7 +1035,7 @@ void main() {
       newline_chars.forEach((newline) {
         test(t['fen'], () {
           var result =
-              chess.load_pgn(t['pgn'].join(newline), {'newline_char': newline});
+              chess.load_pgn(t['pgn'].join(newline), newline_char: newline);
           bool should_pass = t['expect'];
 
           /* some tests are expected to fail */
@@ -1053,7 +1052,7 @@ void main() {
               //print(t["fen"]);
             } else {
               expect(result, isTrue);
-              expect(chess.pgn({'max_width': 65, 'newline_char': newline}),
+              expect(chess.pgn(max_width: 65, newline_char: newline),
                   equals(t['pgn'].join(newline)));
               //print(chess.pgn({ 'max_width': 65, 'newline_char': newline }));
               //print(t['pgn'].join(newline));
@@ -1093,10 +1092,9 @@ void main() {
       expect(result, true);
 
       expect(
-          chess.pgn({
-            'max_width': 65,
-            'newline_char': '\n',
-          }),
+          chess.pgn(
+            max_width: 65,
+          ),
           equals(mainPgn));
     });
 
@@ -1124,7 +1122,7 @@ void main() {
           '32. Qe5 Qe8 33. a4 Qd8 34. R1f2 Qe8 35. R2f3 Qd8 36. Bd3 Qe8\n'
           '37. Qe4 Nf6 38. Rxf6 gxf6 39. Rxf6 Kg8 40. Bc4 Kh8 41. Qf4 1-0\n';
 
-      var result = chess.load_pgn(pgn, {'newline_char': '\r?\n'});
+      var result = chess.load_pgn(pgn);
       expect(result, isNotNull);
 
       expect(chess.load_pgn(pgn), isNotNull);
@@ -2512,7 +2510,7 @@ void main() {
           chess.move(t['moves'][j]);
         }
 
-        var history = chess.getHistory({'verbose': t['verbose']});
+        var history = chess.getHistory(verbose: t['verbose']);
         if (t['fen'] != chess.fen) {
           passed = false;
         } else if (history.length != t['moves'].length) {

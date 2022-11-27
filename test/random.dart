@@ -12,7 +12,7 @@ void main() {
     chess.move(move);
     print('move: ' + move);
   }
-  
+
   print(chess.ascii);
   if (chess.in_checkmate) {
     print('Checkmate');

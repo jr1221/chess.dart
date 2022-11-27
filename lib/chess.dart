@@ -54,39 +54,487 @@ class Chess {
   };
 
   static const List ATTACKS = [
-    20, 0, 0, 0, 0, 0, 0, 24,  0, 0, 0, 0, 0, 0,20, 0,
-     0,20, 0, 0, 0, 0, 0, 24,  0, 0, 0, 0, 0,20, 0, 0,
-     0, 0,20, 0, 0, 0, 0, 24,  0, 0, 0, 0,20, 0, 0, 0,
-     0, 0, 0,20, 0, 0, 0, 24,  0, 0, 0,20, 0, 0, 0, 0,
-     0, 0, 0, 0,20, 0, 0, 24,  0, 0,20, 0, 0, 0, 0, 0,
-     0, 0, 0, 0, 0,20, 2, 24,  2,20, 0, 0, 0, 0, 0, 0,
-     0, 0, 0, 0, 0, 2,53, 56, 53, 2, 0, 0, 0, 0, 0, 0,
-    24,24,24,24,24,24,56,  0, 56,24,24,24,24,24,24, 0,
-     0, 0, 0, 0, 0, 2,53, 56, 53, 2, 0, 0, 0, 0, 0, 0,
-     0, 0, 0, 0, 0,20, 2, 24,  2,20, 0, 0, 0, 0, 0, 0,
-     0, 0, 0, 0,20, 0, 0, 24,  0, 0,20, 0, 0, 0, 0, 0,
-     0, 0, 0,20, 0, 0, 0, 24,  0, 0, 0,20, 0, 0, 0, 0,
-     0, 0,20, 0, 0, 0, 0, 24,  0, 0, 0, 0,20, 0, 0, 0,
-     0,20, 0, 0, 0, 0, 0, 24,  0, 0, 0, 0, 0,20, 0, 0,
-    20, 0, 0, 0, 0, 0, 0, 24,  0, 0, 0, 0, 0, 0,20
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    24,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    2,
+    24,
+    2,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    53,
+    56,
+    53,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    56,
+    0,
+    56,
+    24,
+    24,
+    24,
+    24,
+    24,
+    24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    53,
+    56,
+    53,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    2,
+    24,
+    2,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    24,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20,
+    0,
+    0,
+    20,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    24,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    20
   ];
 
   static const List<int> RAYS = [
-     17,  0,  0,  0,  0,  0,  0, 16,  0,  0,  0,  0,  0,  0, 15, 0,
-      0, 17,  0,  0,  0,  0,  0, 16,  0,  0,  0,  0,  0, 15,  0, 0,
-      0,  0, 17,  0,  0,  0,  0, 16,  0,  0,  0,  0, 15,  0,  0, 0,
-      0,  0,  0, 17,  0,  0,  0, 16,  0,  0,  0, 15,  0,  0,  0, 0,
-      0,  0,  0,  0, 17,  0,  0, 16,  0,  0, 15,  0,  0,  0,  0, 0,
-      0,  0,  0,  0,  0, 17,  0, 16,  0, 15,  0,  0,  0,  0,  0, 0,
-      0,  0,  0,  0,  0,  0, 17, 16, 15,  0,  0,  0,  0,  0,  0, 0,
-      1,  1,  1,  1,  1,  1,  1,  0, -1, -1,  -1,-1, -1, -1, -1, 0,
-      0,  0,  0,  0,  0,  0,-15,-16,-17,  0,  0,  0,  0,  0,  0, 0,
-      0,  0,  0,  0,  0,-15,  0,-16,  0,-17,  0,  0,  0,  0,  0, 0,
-      0,  0,  0,  0,-15,  0,  0,-16,  0,  0,-17,  0,  0,  0,  0, 0,
-      0,  0,  0,-15,  0,  0,  0,-16,  0,  0,  0,-17,  0,  0,  0, 0,
-      0,  0,-15,  0,  0,  0,  0,-16,  0,  0,  0,  0,-17,  0,  0, 0,
-      0,-15,  0,  0,  0,  0,  0,-16,  0,  0,  0,  0,  0,-17,  0, 0,
-    -15,  0,  0,  0,  0,  0,  0,-16,  0,  0,  0,  0,  0,  0,-17
+    17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    0,
+    16,
+    0,
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    0,
+    16,
+    0,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    0,
+    16,
+    0,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    17,
+    0,
+    16,
+    0,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    17,
+    16,
+    15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    -16,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    0,
+    -16,
+    0,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    0,
+    0,
+    -16,
+    0,
+    0,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    0,
+    0,
+    0,
+    -16,
+    0,
+    0,
+    0,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    0,
+    0,
+    0,
+    0,
+    -16,
+    0,
+    0,
+    0,
+    0,
+    -17,
+    0,
+    0,
+    0,
+    0,
+    -15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -17,
+    0,
+    0,
+    -15,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -16,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -17
   ];
 
   static const Map<String, String> FLAGS = {
@@ -127,14 +575,70 @@ class Chess {
   static const int RANK_8 = 0;
 
   static const Map SQUARES = {
-    'a8':   0, 'b8':   1, 'c8':   2, 'd8':   3, 'e8':   4, 'f8':   5, 'g8':   6, 'h8':   7,
-    'a7':  16, 'b7':  17, 'c7':  18, 'd7':  19, 'e7':  20, 'f7':  21, 'g7':  22, 'h7':  23,
-    'a6':  32, 'b6':  33, 'c6':  34, 'd6':  35, 'e6':  36, 'f6':  37, 'g6':  38, 'h6':  39,
-    'a5':  48, 'b5':  49, 'c5':  50, 'd5':  51, 'e5':  52, 'f5':  53, 'g5':  54, 'h5':  55,
-    'a4':  64, 'b4':  65, 'c4':  66, 'd4':  67, 'e4':  68, 'f4':  69, 'g4':  70, 'h4':  71,
-    'a3':  80, 'b3':  81, 'c3':  82, 'd3':  83, 'e3':  84, 'f3':  85, 'g3':  86, 'h3':  87,
-    'a2':  96, 'b2':  97, 'c2':  98, 'd2':  99, 'e2': 100, 'f2': 101, 'g2': 102, 'h2': 103,
-    'a1': 112, 'b1': 113, 'c1': 114, 'd1': 115, 'e1': 116, 'f1': 117, 'g1': 118, 'h1': 119
+    'a8': 0,
+    'b8': 1,
+    'c8': 2,
+    'd8': 3,
+    'e8': 4,
+    'f8': 5,
+    'g8': 6,
+    'h8': 7,
+    'a7': 16,
+    'b7': 17,
+    'c7': 18,
+    'd7': 19,
+    'e7': 20,
+    'f7': 21,
+    'g7': 22,
+    'h7': 23,
+    'a6': 32,
+    'b6': 33,
+    'c6': 34,
+    'd6': 35,
+    'e6': 36,
+    'f6': 37,
+    'g6': 38,
+    'h6': 39,
+    'a5': 48,
+    'b5': 49,
+    'c5': 50,
+    'd5': 51,
+    'e5': 52,
+    'f5': 53,
+    'g5': 54,
+    'h5': 55,
+    'a4': 64,
+    'b4': 65,
+    'c4': 66,
+    'd4': 67,
+    'e4': 68,
+    'f4': 69,
+    'g4': 70,
+    'h4': 71,
+    'a3': 80,
+    'b3': 81,
+    'c3': 82,
+    'd3': 83,
+    'e3': 84,
+    'f3': 85,
+    'g3': 86,
+    'h3': 87,
+    'a2': 96,
+    'b2': 97,
+    'c2': 98,
+    'd2': 99,
+    'e2': 100,
+    'f2': 101,
+    'g2': 102,
+    'h2': 103,
+    'a1': 112,
+    'b1': 113,
+    'c1': 114,
+    'd1': 115,
+    'e1': 116,
+    'f1': 117,
+    'g1': 118,
+    'h1': 119
   };
 
   static const int SQUARES_A1 = 112;
@@ -202,12 +706,12 @@ class Chess {
     update_setup(generate_fen());
   }
 
-  /// Go back to the chess starting position
+  /// Reset the board to the initial starting position.
   void reset() {
     load(DEFAULT_POSITION);
   }
 
-  /// Load a position from a FEN String
+  /// The board is cleared, and the FEN string is loaded. Returns true if the position was successfully loaded, otherwise false.
   bool load(String fen, {bool check_validity = true}) {
     List tokens = fen.split(RegExp(r'\s+'));
     String position = tokens[0];
@@ -584,7 +1088,7 @@ class Chess {
     return Move(turn, from, to, flags, board[from]!.type, captured, promotion);
   }
 
-  List<Move> generate_moves([Map? options]) {
+  List<Move> generate_moves({String? square, bool legal = true}) {
     void add_move(List<Piece?> board, List<Move> moves, from, to, flags) {
       /* if pawn promotion */
       if (board[from]!.type == PAWN &&
@@ -609,15 +1113,10 @@ class Chess {
     var last_sq = SQUARES_H1;
     var single_square = false;
 
-    /* do we want legal moves? */
-    final legal = (options != null && options.containsKey('legal'))
-        ? options['legal']
-        : true;
-
     /* are we generating moves for a single square? */
-    if (options != null && options.containsKey('square')) {
-      if (SQUARES.containsKey(options['square'])) {
-        first_sq = last_sq = SQUARES[options['square']];
+    if (square != null) {
+      if (SQUARES.containsKey(square)) {
+        first_sq = last_sq = SQUARES[square];
         single_square = true;
       } else {
         /* invalid square */
@@ -834,18 +1333,22 @@ class Chess {
     return attacked(swap_color(color), kings[color]);
   }
 
+  /// Returns true or false if the side to move is in check.
   bool get in_check {
     return king_attacked(turn);
   }
 
+  /// Returns true or false if the side to move has been checkmated.
   bool get in_checkmate {
     return in_check && generate_moves().isEmpty;
   }
 
+  /// Returns true or false if the side to move has been stalemated.
   bool get in_stalemate {
     return !in_check && generate_moves().isEmpty;
   }
 
+  /// Returns true if the game is drawn due to insufficient material (K vs. K, K vs. KB, or K vs. KN) otherwise false.
   bool get insufficient_material {
     final pieces = {};
     final bishops = <int>[];
@@ -891,6 +1394,7 @@ class Chess {
     return false;
   }
 
+  /// Returns true or false if the current board position has occurred three or more times.
   bool get in_threefold_repetition {
     /* TODO: while this function is fine for casual use, a better
      * implementation would use a Zobrist key (instead of FEN). the
@@ -1207,7 +1711,7 @@ class Chess {
 
   // debug utility
   int perft(int? depth) {
-    var moves = generate_moves({'legal': false});
+    var moves = generate_moves(legal: false);
     var nodes = 0;
     var color = turn;
 
@@ -1248,17 +1752,19 @@ class Chess {
   ///  A flag of 'pc' would mean that a pawn captured a piece on the 8th rank and promoted.
   ///
   ///  If "asObjects" is set to true in the options Map, then it returns a List<Move>
-  List moves([Map? options]) {
+  List moves(
+      {String? square,
+      bool verbose = false,
+      bool asObjects = false,
+      bool legal = true}) {
     /* The internal representation of a chess move is in 0x88 format, and
        * not meant to be human-readable.  The code below converts the 0x88
        * square coordinates to algebraic coordinates.  It also prunes an
        * unnecessary move keys resulting from a verbose call.
        */
 
-    final ugly_moves = generate_moves(options);
-    if (options != null &&
-        options.containsKey('asObjects') &&
-        options['asObjects'] == true) {
+    final ugly_moves = generate_moves(square: square, legal: true);
+    if (asObjects) {
       return ugly_moves;
     }
     final moves = [];
@@ -1267,9 +1773,7 @@ class Chess {
       /* does the user want a full move object (most likely not), or just
          * SAN
          */
-      if (options != null &&
-          options.containsKey('verbose') &&
-          options['verbose'] == true) {
+      if (verbose) {
         moves.add(make_pretty(ugly_moves[i]));
       } else {
         moves.add(move_to_san(ugly_moves[i]));
@@ -1340,21 +1844,11 @@ class Chess {
     return moves;
   }
 
-  /// Return the PGN representation of the game thus far
-  String pgn([Map? options]) {
+  /// Returns the game in PGN format. Options is an optional parameter which may include max width and/or a newline character settings.
+  String pgn({String newline_char = '\n', int max_width = 0}) {
     /* using the specification from http://www.chessclub.com/help/PGN-spec
        * example for html usage: .pgn({ max_width: 72, newline_char: "<br />" })
        */
-    final newline = (options != null &&
-            options.containsKey('newline_char') &&
-            options['newline_char'] != null)
-        ? options['newline_char']
-        : '\n';
-    final max_width = (options != null &&
-            options.containsKey('max_width') &&
-            options['max_width'] != null)
-        ? options['max_width']
-        : 0;
     final result = [];
     var header_exists = false;
 
@@ -1363,13 +1857,17 @@ class Chess {
       /* TODO: order of enumerated properties in header object is not
          * guaranteed, see ECMA-262 spec (section 12.6.4)
          */
-      result.add(
-          '[' + i.toString() + ' \"' + header[i].toString() + '\"]' + newline);
+      result.add('[' +
+          i.toString() +
+          ' \"' +
+          header[i].toString() +
+          '\"]' +
+          newline_char);
       header_exists = true;
     }
 
     if (header_exists && (history.isNotEmpty)) {
-      result.add(newline);
+      result.add(newline_char);
     }
 
     final moves = san_moves();
@@ -1388,7 +1886,7 @@ class Chess {
           result.removeLast();
         }
 
-        result.add(newline);
+        result.add(newline_char);
         current_width = 0;
       } else if (i != 0) {
         result.add(' ');
@@ -1402,11 +1900,13 @@ class Chess {
   }
 
   /// Load the moves of a game stored in Portable Game Notation.
-  /// [options] is an optional parameter that contains a 'newline_char'
-  /// which is a string representation of a RegExp (and should not be pre-escaped)
-  /// and defaults to '\r?\n').
+  /// The [newline_char] is a string representation of a valid RegExp fragment and is used to process the PGN.
+  /// It defaults to \r?\n. Special characters should not be pre-escaped, but any literal special characters should be escaped as is normal for a RegExp.
+  /// Keep in mind that backslashes in JavaScript strings must themselves be escaped (see sloppy_pgn example below).
+  /// Avoid using a newline_char that may occur elsewhere in a PGN, such as . or x, as this will result in unexpected behavior.
+  ///
   /// Returns [true] if the PGN was parsed successfully, otherwise [false].
-  bool load_pgn(String? pgn, [Map? options]) {
+  bool load_pgn(String? pgn, {String newline_char = '\r?\n'}) {
     String mask(str) {
       return str.replaceAll(RegExp(r'\\'), '\\');
     }
@@ -1438,11 +1938,8 @@ class Chess {
         return has_keys;
       }*/
 
-    Map<String, String> parse_pgn_header(header, [Map? options]) {
-      final newline_char =
-          (options != null && options.containsKey('newline_char'))
-              ? options['newline_char']
-              : '\r?\n';
+    Map<String, String> parse_pgn_header(header,
+        {String newline_char = '\r?\n'}) {
       final header_obj = <String, String>{};
       final headers = header.split(RegExp(newline_char));
       var key = '';
@@ -1469,10 +1966,6 @@ class Chess {
       return header_obj;
     }
 
-    final newline_char =
-        (options != null && options.containsKey('newline_char'))
-            ? options['newline_char']
-            : '\r?\n';
     //var regex = new RegExp(r'^(\[.*\]).*' + r'1\.'); //+ r"1\."); //+ mask(newline_char));
 
     final indexOfMoveStart = pgn!.indexOf(RegExp(newline_char + r'\d+\.{1,3}'));
@@ -1489,7 +1982,7 @@ class Chess {
     }
 
     /* parse PGN header */
-    final headers = parse_pgn_header(header_string, options);
+    final headers = parse_pgn_header(header_string, newline_char: newline_char);
     if (headers.containsKey('FEN')) {
       load(headers['FEN']!);
     } else {
@@ -1620,12 +2113,10 @@ class Chess {
     return null;
   }
 
-  List getHistory([Map? options]) {
+  /// Returns a list containing the moves of the current game.
+  List getHistory({bool verbose = false}) {
     final reversed_history = <Move?>[];
     final move_history = [];
-    final verbose = (options != null &&
-        options.containsKey('verbose') &&
-        options['verbose'] == true);
 
     while (history.isNotEmpty) {
       reversed_history.add(undo_move());
